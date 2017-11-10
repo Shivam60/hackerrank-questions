@@ -1,22 +1,15 @@
-from itertools import product
-no=input()
-na1=map(int, raw_input().strip().split(' '))
-na2=map(int, raw_input().strip().split(' '))
-fl=na1+na2
-
-mx=max(fl)
-while(mx>1):
-	cnt=0
-	for i in fl:
-		if i%mx==0:
-			cnt+=1
-		if cnt==2:
-			break
-	if cnt==2:
-		break
+def bin(inp,st,en,vl):
+	md=int((st+en)/2)
+	print(md)
+	if inp[md]==vl:
+		return md
+	elif inp[md]>vl and inp[md-1]<vl:
+		return md-1
+	elif inp[md]<vl and inp[md+1]>vl:
+		return md
+	elif inp[md]>vl:
+		en=md
+		bin(inp,st,en,vl)
 	else:
-		mx-=1
-print(max(list(filter(lambda x:(x%mx==0),na1)))+max(list(filter(lambda x:(x%mx==0),na2))))
-#an=list(product(list(filter(lambda x:(x%mx==0),na1)),list(filter(lambda x:(x%mx==0),na2))))
-#print(max(list(map(sum,an))))
-
+		st=md
+		bin(inp,st,en,vl)

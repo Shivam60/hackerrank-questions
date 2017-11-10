@@ -1,14 +1,18 @@
 def bin(inp,st,en,vl):
 	md=int((st+en)/2)
 	if inp[md]==vl:
-		return 
+		return md
+	elif inp[md]>vl and inp[md-1]<vl:
+		return md-1
+	elif inp[md]<vl and inp[md+1]>vl:
+		return md
+	elif inp[md]>vl:
+		en=md
+		bin(inp,st,en,vl)
+	else:
+		st=md
+		bin(inp,st,en,vl)
 
-#a=[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
-b=[]
-a=[]
-n=int(input())
-#for i in range(n):
-#    a.append(int(input()))
 for j in range(n):
 	i=int(input())
 	if b==[]:
