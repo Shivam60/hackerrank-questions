@@ -12,9 +12,10 @@ int main(){
             h=l=t;
         }
         else{
-            if(t>h) ++cth;
-            if(t<h) ++ctl;
+            if(t>h){h=t; ++cth};
+            if(t<l){l=t; ++ctl};
         }
     }
-    cout<<cth<<ctl;
+    cout<<cth<<' '<<ctl;
 }
+
